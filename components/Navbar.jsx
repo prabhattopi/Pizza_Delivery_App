@@ -6,7 +6,7 @@ const Navbar = () => {
     <div className={styles.container}>
    <div className={styles.item}>
     <div className={styles.callButton}>
-      <Image src="/img/telephone.png" alt="" width="32" height="32"/>
+      <Image src="/img/telephone.png" alt="" width="32px" height="32px"/>
     </div>
     <div className={styles.texts}>
       <div className={styles.text}>Order Now</div>
@@ -25,8 +25,9 @@ const Navbar = () => {
     </ul>
    </div>
    <div className={styles.item}>
-    <div>
-    <Image src="/img/logo.png" alt="" width="160px" height="69px"/>
+    <div className={styles.cart}>
+    <i className={styles.fat||"fa fa-shopping-cart"} aria-hidden="true" style={{color:"white",fontSize:"25px"}}/>
+    <div className={styles.counter}>2</div>
     </div>
    </div>
 
