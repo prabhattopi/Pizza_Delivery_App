@@ -35,12 +35,12 @@ One day I visit the Delivery site and I saw their good looking UI and Some funct
 <hr/>
 
 - ### Categories Page :
-  ![alt text](/assest/demo3.png.png)
+  ![alt text](/assest/demo3.png)
 
 <hr/>
 
 - ### Footer Part :
-  ![alt text](/assest/demo4.png.png)
+  ![alt text](/assest/demo4.png)
 
 
 
