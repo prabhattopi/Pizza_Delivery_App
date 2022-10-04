@@ -17,11 +17,11 @@ One day I visit the Delivery site and I saw their good looking UI and Some funct
 
 ## Tools or Packages For Project 
 
-### Frontend Side && ### Backend Side : :
-   "mongoose": "^6.6.1",
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+### Frontend Side && Backend Side:
+      "mongoose": "^6.6.1",
+      "next": "11.1.2",
+      "react": "17.0.2",
+      "react-dom": "17.0.2"
 
 ## Some Scrreshots of project : 
 
@@ -36,6 +36,11 @@ One day I visit the Delivery site and I saw their good looking UI and Some funct
 
 - ### Categories Page :
   ![alt text](/assest/demo3.png)
+
+<hr/>
+
+- ### Your Selected Pizza Select size Page :
+  ![alt text](/assest/demo5.png)
 
 <hr/>
 
