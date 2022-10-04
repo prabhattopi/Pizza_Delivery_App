@@ -70,3 +70,38 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+
+.ingredients{
+    display:flex;
+    margin-bottom: 30px;
+
+}
+
+.option{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.checkbox{
+    width: 20px;
+    height: 20px;
+
+}
+.quantity{
+    width: 50px;
+    height: 30px;
+
+}
+.button{
+    height: 30px;
+    margin-left: 10px;
+    background-color: #d1411e;
+    color: white;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+
+}

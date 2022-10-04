@@ -1,24 +1,47 @@
-This is a [Next.js](https://nextjs.org/)
+# **Pizza_Delivery_App (Nextjs) ( Individual Project )**
 
-## Getting Started
+Pizza delivery apps service allows customers to pick from different flavours of pizza from their favourite restaurant and with the pizza constructor feature they can customize their pizza by adding toppings, spices, ingredients etc. according to their taste, and place an order.
+<br/>
+<br/>
 
-First, run the development server:
+### **Deployed Link** : https://enchanting-tan-binturong.cyclic.app
 
-```bash
-npm run dev
-```
+<br/>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## _**If you like the application then give a star as a feedback..**_
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br/>
+## **Initiating the project**
+One day I visit the Delivery site and I saw their good looking UI and Some functionalities. So after some time I started building my Delivery App. I completed this project individually as a side project. First I completed FrontEnd part and then I worked on backend-end part.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Tools or Packages For Project 
 
-## Learn More
+### Frontend Side && ### Backend Side : :
+   "mongoose": "^6.6.1",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
 
-To learn more about Next.js, take a look at the following resources:
+## Some Scrreshots of project : 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+- ### Landing Page :
+  ![alt text](/assest/demo1.png)
+  <hr/>
+
+  ![alt text](/assest/demo2.png)
+
+<hr/>
+
+- ### Categories Page :
+  ![alt text](/assest/demo3.png.png)
+
+<hr/>
+
+- ### Footer Part :
+  ![alt text](/assest/demo4.png.png)
+
+
+
+<h1>Thank you for visiting...!</h1>
