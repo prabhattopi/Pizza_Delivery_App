@@ -1,3 +1,4 @@
+import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,8 @@ import Feauterd from "../components/Feauterd";
 import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Home({pizzalist}) {
+
   return (
     <div>
       <Head>
@@ -21,7 +23,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Feauterd />
-      <PizzaList/>
+      <PizzaList pizzalist={pizzalist}/>
     </div>
   );
+}
+
+
+export const getServerSideProps=async()=>{
+  const response=await axios.get("http://localhost:3000/api/products")
+
+  return {
+    props:{
+      pizzalist:response.data
+    }
+  }
+
 }

@@ -10,10 +10,14 @@
     "postinstall": "next build"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
+    "axios": "^1.0.0",
     "mongoose": "^6.6.1",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-redux": "^8.0.4",
+    "redux": "^4.2.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",
