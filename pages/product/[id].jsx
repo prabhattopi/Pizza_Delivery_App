@@ -2,16 +2,21 @@ import React, { useState } from "react";
 import styles from "../../styles/Product.module.css";
 import Image from "next/dist/client/image";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../redux/CartSlice";
 const Product = ({ pizza }) => {
   const [price, setPrice] = useState(pizza.prices[0]);
   const [size, setSize] = useState(0);
   const [extras, setExtras] = useState([]);
   const [quantity,setQuantity]=useState(1)
+  const dispatch=useDispatch()
 
   const changePrice = (number) => {
     setPrice(price + number);
   };
-  const handleClick = () => {};
+  const handleClick = () => {
+    dispatch(addProduct({...pizza,extras,price,quantity}))
+  };
 
   const handleSize = (e) => {
     const difference = pizza.prices[e] - pizza.prices[size];
