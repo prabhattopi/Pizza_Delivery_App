@@ -1,5 +1,9 @@
 module.exports = {
-  reactStrictMode: true,
+
   distDir: 'dist',
   compress: false,
+  images:{
+    domains:["res.cloudinary.com"]
+
+  }
 }

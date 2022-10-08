@@ -18,6 +18,16 @@ const handler =async(req,res)=>{
 
     }
     if(method==="PUT"){
+      try{
+        const product=await Order.findByIdAndUpdate(id,req.body,{
+          new:true
+        })
+        res.status(201).json(product)
+          }
+          catch(err){
+              res.status(500).josn(err)
+          }
+      
         
     }
     if(method==="DELETE"){

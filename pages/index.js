@@ -2,11 +2,17 @@ import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import Add from "../components/Add";
+import AddButton from "../components/AddButton";
 import Feauterd from "../components/Feauterd";
 import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
 
-export default function Home({pizzalist}) {
+export default function Home({pizzalist,admin}) {
+  const [close,setClose]=useState(true);
+
+
 
   return (
     <div>
@@ -24,18 +30,28 @@ export default function Home({pizzalist}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Feauterd />
+      {admin && <AddButton setClose={setClose}/>}
       <PizzaList pizzalist={pizzalist}/>
+      {!close&&<Add setClose={setClose}/>}
     </div>
   );
 }
 
 
-export const getServerSideProps=async()=>{
+export const getServerSideProps=async(ctx)=>{
+  const myCookie=ctx.req?.cookies||"";
+  let admin=false;
+  if(myCookie.token===process.env.TOKEN){
+    admin=true;
+  }
+
+
   const response=await axios.get("http://localhost:3000/api/products")
 
   return {
     props:{
-      pizzalist:response.data
+      pizzalist:response.data,
+      admin
     }
   }
 
