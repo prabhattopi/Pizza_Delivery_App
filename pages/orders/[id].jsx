@@ -118,7 +118,7 @@ export default Order;
 
 export const getServerSideProps=async({params})=>{
   const res=await axios.get(
-    `/api/orders/${params.id}`
+    `http://localhost:3000/api/orders/${params.id}`
   )
 
   return {
