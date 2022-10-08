@@ -18,10 +18,23 @@ One day I visit the Delivery site and I saw their good looking UI and Some funct
 ## Tools or Packages For Project 
 
 ### Frontend Side && Backend Side:
-      "mongoose": "^6.6.1",
-      "next": "11.1.2",
-      "react": "17.0.2",
-      "react-dom": "17.0.2"
+    "@paypal/react-paypal-js": "^7.8.1",
+    "@reduxjs/toolkit": "^1.8.5",
+    "axios": "^1.0.0",
+    "cookie": "^0.5.0",
+    "cors": "^2.8.5",
+    "mongoose": "^6.6.1",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^8.0.4",
+    "redux": "^4.2.0"
+     },
+
+    "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2"
+     }
 
 ## Some Scrreshots of project : 
 

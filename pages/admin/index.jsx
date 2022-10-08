@@ -9,7 +9,7 @@ const Index = ({orders,products}) => {
 
   const handleDelete=async(id)=>{
     try{
-  const res=await axios.delete(`http://localhost:3000/api/products/${id}`)
+  const res=await axios.delete(`/api/products/${id}`)
   setPizzaList(pizzaList.filter(e=>e._id!==id))
 
     }
@@ -22,7 +22,7 @@ const Index = ({orders,products}) => {
   const handleStatus=async(id)=>{
     const item=orderList.filter(e=>e._id===id)[0]
     try{
-  const res=await axios.put("http://localhost:3000/api/orders/"+id,{status:item.status+1})
+  const res=await axios.put("/api/orders/"+id,{status:item.status+1})
   setOrderList([
     
     res.data,
@@ -128,8 +128,8 @@ export const getServerSideProps=async(ctx)=>{
       }
     }
   }
-  const res=await axios.get("http://localhost:3000/api/products")
-  const reso=await axios.get("http://localhost:3000/api/orders")
+  const res=await axios.get("/api/products")
+  const reso=await axios.get("/api/orders")
 
   return {
     props:{
