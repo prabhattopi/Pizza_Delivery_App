@@ -8,6 +8,7 @@ const handler=(req,res)=>{
          maxAge:60*60,
          sameSite:"strict",
          path:'/',
+         httpOnly:true
         
         })
 
