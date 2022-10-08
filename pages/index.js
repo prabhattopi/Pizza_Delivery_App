@@ -18,6 +18,7 @@ export default function Home({pizzalist}) {
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
+
         <title>Pizza Restaurant NearBy</title>
         <meta name="description" content="Lazwab Pizza" />
         <link rel="icon" href="/favicon.ico" />
