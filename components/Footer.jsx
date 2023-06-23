@@ -26,7 +26,7 @@ const Footer = () => {
             <br /> (602) 867-1011
           </p>
           <p className={styles.text}>
-            1614 E. Erwin St #104.
+            16147 E. Erwin St #104.
             <br /> NewYork, 85022
             <br /> (602) 867-1012
           </p>
