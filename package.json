@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "main": "server.js",
   "scripts": {
-    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && next dev",
-    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && next build",
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && next start",
-    "lint": "SET NODE_OPTIONS=--openssl-legacy-provider && next lint",
-    "postinstall": "SET NODE_OPTIONS=--openssl-legacy-provider && next build"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "postinstall": "next build"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^7.8.1",
