@@ -11,7 +11,7 @@ const Login = () => {
   const router = useRouter()
 
   const handleClick = async () => {
-    console.log(`${process.env.Base_URL}`)
+    console.log(`${process.env.NEXT_PUBLIC_Base_URL}`)
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_Base_URL}/api/login`,
