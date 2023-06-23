@@ -1,15 +1,16 @@
-import styles from "../../styles/Order.module.css";
-import Image from "next/dist/client/image";
-import axios from "axios";
+import styles from "../../styles/Order.module.css"
+import Image from "next/dist/client/image"
+import axios from "axios"
+import { APIURL } from "../../apiUrl"
 
-const Order = ({order}) => {
-    const status = order.status;
+const Order = ({ order }) => {
+  const status = order.status
 
   const statusClass = (index) => {
-    if (index - status < 1) return styles.done;
-    if (index - status === 1) return styles.inProgress;
-    if (index - status > 1) return styles.undone;
-  };
+    if (index - status < 1) return styles.done
+    if (index - status === 1) return styles.inProgress
+    if (index - status > 1) return styles.undone
+  }
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -111,17 +112,15 @@ const Order = ({order}) => {
         </div>
       </div>
     </div>
-  );
-};
-
-export default Order;
-
-export const getServerSideProps=async({params})=>{
-  const res=await axios.get(
-    `http://localhost:3000/api/orders/${params.id}`
   )
+}
+
+export default Order
+
+export const getServerSideProps = async ({ params }) => {
+  const res = await axios.get(`${APIURL}/api/orders/${params.id}`)
 
   return {
-    props:{order:res.data}
+    props: { order: res.data },
   }
 }

@@ -1,55 +1,56 @@
-import { useState } from "react";
-import styles from "../styles/Add.module.css";
-import axios from "axios";
-import { useRouter } from "next/router";
+import { useState } from "react"
+import styles from "../styles/Add.module.css"
+import axios from "axios"
+import { useRouter } from "next/router"
+import { APIURL } from "../apiUrl"
 
 const Add = ({ setClose }) => {
-  const [file, setFile] = useState(null);
-  const [title, setTitle] = useState(null);
-  const [desc, setDesc] = useState(null);
-  const [prices, setPrices] = useState([]);
-  const [extraOptions, setExtraOptions] = useState([]);
-  const [extra, setExtra] = useState(null);
+  const [file, setFile] = useState(null)
+  const [title, setTitle] = useState(null)
+  const [desc, setDesc] = useState(null)
+  const [prices, setPrices] = useState([])
+  const [extraOptions, setExtraOptions] = useState([])
+  const [extra, setExtra] = useState(null)
 
   const changePrice = (e, index) => {
-    const currentPrices = prices;
-    currentPrices[index] = e.target.value;
-    setPrices(currentPrices);
-  };
+    const currentPrices = prices
+    currentPrices[index] = e.target.value
+    setPrices(currentPrices)
+  }
 
   const handleExtraInput = (e) => {
-    setExtra({ ...extra, [e.target.name]: e.target.value });
-  };
+    setExtra({ ...extra, [e.target.name]: e.target.value })
+  }
 
   const handleExtra = (e) => {
-    setExtraOptions((prev) => [...prev, extra]);
-  };
+    setExtraOptions((prev) => [...prev, extra])
+  }
 
   const handleCreate = async () => {
-    const data = new FormData();
-    data.append("file", file);
-    data.append("upload_preset", "uploads");
+    const data = new FormData()
+    data.append("file", file)
+    data.append("upload_preset", "uploads")
     try {
       const uploadRes = await axios.post(
         "https://api.cloudinary.com/v1_1/desd5e92t/image/upload",
         data
-      );
+      )
 
-      const { url } = uploadRes.data;
+      const { url } = uploadRes.data
       const newProduct = {
         title,
         desc,
         prices,
         extraOptions,
         img: url,
-      };
+      }
 
-      await axios.post("http://localhost:3000/api/products", newProduct);
-      setClose(true);
+      await axios.post(`${APIURL}/api/products`, newProduct)
+      setClose(true)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   return (
     <div className={styles.container}>
@@ -135,7 +136,7 @@ const Add = ({ setClose }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Add;
+export default Add

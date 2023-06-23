@@ -1,38 +1,39 @@
-import React, { useState } from "react";
-import styles from "../../styles/Product.module.css";
-import Image from "next/dist/client/image";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../../redux/CartSlice";
+import React, { useState } from "react"
+import styles from "../../styles/Product.module.css"
+import Image from "next/dist/client/image"
+import axios from "axios"
+import { useDispatch } from "react-redux"
+import { addProduct } from "../../redux/CartSlice"
+import { APIURL } from "../../apiUrl"
 const Product = ({ pizza }) => {
-  const [price, setPrice] = useState(pizza.prices[0]);
-  const [size, setSize] = useState(0);
-  const [extras, setExtras] = useState([]);
-  const [quantity,setQuantity]=useState(1)
-  const dispatch=useDispatch()
+  const [price, setPrice] = useState(pizza.prices[0])
+  const [size, setSize] = useState(0)
+  const [extras, setExtras] = useState([])
+  const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch()
 
   const changePrice = (number) => {
-    setPrice(price + number);
-  };
+    setPrice(price + number)
+  }
   const handleClick = () => {
-    dispatch(addProduct({...pizza,extras,price,quantity}))
-  };
+    dispatch(addProduct({ ...pizza, extras, price, quantity }))
+  }
 
   const handleSize = (e) => {
-    const difference = pizza.prices[e] - pizza.prices[size];
-    setSize(e);
-    changePrice(difference);
-  };
+    const difference = pizza.prices[e] - pizza.prices[size]
+    setSize(e)
+    changePrice(difference)
+  }
   const handleChange = (e, option) => {
-    const checked = e.target.checked;
+    const checked = e.target.checked
     if (checked) {
-      changePrice(option.price);
-      setExtras((prev) => [...prev, option]);
+      changePrice(option.price)
+      setExtras((prev) => [...prev, option])
     } else {
-      changePrice(-option.price);
-      setExtras(extras.filter((e) => e._id !== option._id));
+      changePrice(-option.price)
+      setExtras(extras.filter((e) => e._id !== option._id))
     }
-  };
+  }
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -87,19 +88,17 @@ const Product = ({ pizza }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Product;
+export default Product
 
 export const getServerSideProps = async ({ params }) => {
-  const response = await axios.get(
-    `http://localhost:3000/api/products/${params.id}`
-  );
+  const response = await axios.get(`${APIURL}/api/products/${params.id}`)
 
   return {
     props: {
       pizza: response.data,
     },
-  };
-};
+  }
+}

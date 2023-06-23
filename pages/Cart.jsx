@@ -1,44 +1,45 @@
-import styles from "../styles/Cart.module.css";
-import Image from "next/image";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import styles from "../styles/Cart.module.css"
+import Image from "next/image"
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect, useState } from "react"
 import {
   PayPalScriptProvider,
   PayPalButtons,
   usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { reset } from "../redux/CartSlice";
-import OrderDetail from "../components/OrderDetail";
+} from "@paypal/react-paypal-js"
+import axios from "axios"
+import { useRouter } from "next/router"
+import { reset } from "../redux/CartSlice"
+import OrderDetail from "../components/OrderDetail"
+import { APIURL } from "../apiUrl"
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart);
-  const [open, setOpen] = useState(false);
-  const [cash, setCash] = useState(false);
-  const amount = cart.total;
-  const currency = "USD";
-  const style = { layout: "vertical" };
-  const dispatch = useDispatch();
-  const router = useRouter();
+  const cart = useSelector((state) => state.cart)
+  const [open, setOpen] = useState(false)
+  const [cash, setCash] = useState(false)
+  const amount = cart.total
+  const currency = "USD"
+  const style = { layout: "vertical" }
+  const dispatch = useDispatch()
+  const router = useRouter()
 
   const createOrder = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/orders", data);
+      const res = await axios.post(`${APIURL}/api/orders`, data)
       if (res.status === 201) {
-        dispatch(reset());
-        router.push(`/orders/${res.data._id}`);
+        dispatch(reset())
+        router.push(`/orders/${res.data._id}`)
       }
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
 
   // Custom component to wrap the PayPalButtons and handle currency changes
   const ButtonWrapper = ({ currency, showSpinner }) => {
     // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
     // This is the main reason to wrap the PayPalButtons in a new component
-    const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+    const [{ options, isPending }, dispatch] = usePayPalScriptReducer()
 
     useEffect(() => {
       dispatch({
@@ -47,8 +48,8 @@ const Cart = () => {
           ...options,
           currency: currency,
         },
-      });
-    }, [currency, showSpinner]);
+      })
+    }, [currency, showSpinner])
 
     return (
       <>
@@ -72,24 +73,24 @@ const Cart = () => {
               })
               .then((orderId) => {
                 // Your code here after create the order
-                return orderId;
-              });
+                return orderId
+              })
           }}
           onApprove={function (data, actions) {
             return actions.order.capture().then(function (details) {
-              const shipping = details.purchase_units[0].shipping;
+              const shipping = details.purchase_units[0].shipping
               createOrder({
                 customer: shipping.name.full_name,
                 address: shipping.address.address_line_1,
                 total: cart.total,
                 method: 1,
-              });
-            });
+              })
+            })
           }}
         />
       </>
-    );
-  };
+    )
+  }
 
   return (
     <div className={styles.container}>
@@ -185,7 +186,7 @@ const Cart = () => {
       </div>
       {cash && <OrderDetail total={cart.total} createOrder={createOrder} />}
     </div>
-  );
-};
+  )
+}
 
-export default Cart;
+export default Cart

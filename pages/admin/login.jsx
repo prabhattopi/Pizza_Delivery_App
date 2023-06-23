@@ -1,25 +1,30 @@
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import styles from "../../styles/Login.module.css";
+import axios from "axios"
+import { useRouter } from "next/router"
+import { useState } from "react"
+import styles from "../../styles/Login.module.css"
+import { APIURL } from "../../apiUrl"
 
 const Login = () => {
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [error, setError] = useState(false);
-  const router = useRouter();
+  const [username, setUsername] = useState(null)
+  const [password, setPassword] = useState(null)
+  const [error, setError] = useState(false)
+  const router = useRouter()
 
   const handleClick = async () => {
+    console.log(`${process.env.Base_URL}`)
     try {
-      await axios.post("http://localhost:3000/api/login", {
-        username,
-        password,
-      });
-      router.push("/admin");
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_Base_URL}/api/login`,
+        {
+          username,
+          password,
+        }
+      )
+      router.push("/admin")
     } catch (err) {
-      setError(true);
+      setError(true)
     }
-  };
+  }
 
   return (
     <div className={styles.container}>
@@ -42,7 +47,7 @@ const Login = () => {
         {error && <span className={styles.error}>Wrong Credentials!</span>}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
